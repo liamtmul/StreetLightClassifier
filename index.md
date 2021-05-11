@@ -27,7 +27,7 @@ With a labeled image dataset of n < 4,000, we anticipated that validation accura
 
 
 
-# Final Model
+## Final Model
  
 Similar to our exploratory modeling, we instituted transfer learning using the ResNet50 deep learning model for our final model architecture.  Weights were preloaded from the well known ImageNet dataset, a dataset with approximately 1000 different classes. The central tenet of transfer learning is that many of the features used to classify images in one dataset are applicable and transferable to other image classifying tasks. To adapt the base model to the streetlights classification problem, we removed the top layer from our pretrained model and substituted it with our own Softmax layer. The softmax layer assigns a probability of class assignment to each image. Our Softmax layer consists of 4 nodes since we are classifying into one of the following classes: ENCL, COLN, OPEN or non_streetlight. 
  
