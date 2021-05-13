@@ -8,6 +8,15 @@ In collaboration with Code for Charlottesville, we sought to develop an image cl
 In order for the City of Charlottesville to progress with stated initiatives to expand, modernize and maintain their existing streetlight network they must get a thorough inventory of streetlight fixture type by location. In an effort to convert from energy intensive lighting to LED bulbs it is necessary to know the type of fixture at each location. Many municipalities, such as the City of Charlottesville, have contracted their lighting out to the local utility. Changing of location of the bulbs can become rather bureaucratic, but it is relatively easy for a municipality to request the utility to change the type of bulb. 
 The goal of our project is to develop a deep learning image classifier which will accurately classify streetlights by their fixture type. An accurate image classifier will provide the capacity to generate a map of each streetlight’s location in the city of Charlottesville along with its bulb compatibility. Since the bulb type is heavily dependent on the fixture class, if Charlottesville and other cities aspire to reduce there running cost and carbon footprint the transition from Metal Halide, High Pressure Sodium, and  Low Pressure Sodium bulbs to LED lights will require an accurate account of the type of fixtures that they have located across their city.   
  
+![colonial](https://user-images.githubusercontent.com/50001904/118058990-73bc9000-b35d-11eb-8c15-d9be9e610226.jpg)
+
+![enclosed](https://user-images.githubusercontent.com/50001904/118059312-3dcbdb80-b35e-11eb-83ce-08cd9a565467.jpg)
+
+![open](https://user-images.githubusercontent.com/50001904/118059420-7d92c300-b35e-11eb-8949-d87bb4e49d9d.jpg)
+
+![noStreetlight](https://user-images.githubusercontent.com/50001904/118059330-4ae8ca80-b35e-11eb-985a-ddb74bae9728.jpg)
+
+ 
 Additionally, an updated catalog of the current streetlight network will allow for the complementary goals of increased pedestrian safety and improved equity across neighborhoods to move forward. Driven by these aligned goals to reduce the city’s carbon footprint, increase pedestrian safety and extend the existing network into underserved communities, a complete and thorough inventory of the existing streetlight network is of utmost importance.
  
 Image classification models have well established methodologies and previously have shown significant efficacy for similar applications. Deep Learning algorithms such as Convolutional Neural Networks (CNN) have been trained on Google Street View to successfully detect and classify land use patterns \cite{Kang},  motor vehicles \cite{Timnit}, and street numbers \cite{Goodfellow}. Studies have also employed these techniques to extract features from street images to feed into other models in order to estimate house prices \cite{Law}, building ages \cite{Li}],  and street safety \cite{Naik}.
