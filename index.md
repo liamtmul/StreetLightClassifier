@@ -4,18 +4,9 @@
 
 In collaboration with Code for Charlottesville, we sought to develop an image classifier to accurately catalog the streetlights in Charlottesville. The City of Charlottesville would in turn use the classifier to take an inventory of their existing streetlight network and  better inform their planning decisions centered around pedestrian safety, neighborhood equity, environmental footprint and network expansion. Other municipalities around the state and around the country could also  use this model to classify their street light inventory. We enlisted the Google Street View Static AP to capture our streetlight image dataset. The image classifier architecture was built using a transfer learning with InceptionResNetV2 deep learning model. The generated streetlight image classifier was able to accurately classify input images at a 95% success rate among 4 distinct classes: enclosed, open, colonial and non-streetlight.  We concluded with subsequent image capture attempts coupled with updated request parameters, the developed streetlight classifier would be able to accurately  inventory a high percentage of the streetlights in the Charlottesville streetlight network. 
 
- ## Motivations 
+## Motivations 
 In order for the City of Charlottesville to progress with stated initiatives to expand, modernize and maintain their existing streetlight network they must get a thorough inventory of streetlight fixture type by location. In an effort to convert from energy intensive lighting to LED bulbs it is necessary to know the type of fixture at each location. Many municipalities, such as the City of Charlottesville, have contracted their lighting out to the local utility. Changing of location of the bulbs can become rather bureaucratic, but it is relatively easy for a municipality to request the utility to change the type of bulb. 
-The goal of our project is to develop a deep learning image classifier which will accurately classify streetlights by their fixture type. An accurate image classifier will provide the capacity to generate a map of each streetlight’s location in the city of Charlottesville along with its bulb compatibility. Since the bulb type is heavily dependent on the fixture class, if Charlottesville and other cities aspire to reduce there running cost and carbon footprint the transition from Metal Halide, High Pressure Sodium, and  Low Pressure Sodium bulbs to LED lights will require an accurate account of the type of fixtures that they have located across their city.   
- 
-![colonial](https://user-images.githubusercontent.com/50001904/118058990-73bc9000-b35d-11eb-8c15-d9be9e610226.jpg)
-
-![enclosed](https://user-images.githubusercontent.com/50001904/118059312-3dcbdb80-b35e-11eb-83ce-08cd9a565467.jpg)
-
-![open](https://user-images.githubusercontent.com/50001904/118059420-7d92c300-b35e-11eb-8949-d87bb4e49d9d.jpg)
-
-![noStreetlight](https://user-images.githubusercontent.com/50001904/118059330-4ae8ca80-b35e-11eb-985a-ddb74bae9728.jpg)
-
+The goal of our project is to develop a deep learning image classifier which will accurately classify streetlights by their fixture type. An accurate image classifier will provide the capacity to generate a map of each streetlight’s location in the city of Charlottesville along with its bulb compatibility. Since the bulb type is heavily dependent on the fixture class, if Charlottesville and other cities aspire to reduce there running cost and carbon footprint the transition from Metal Halide, High Pressure Sodium, and  Low Pressure Sodium bulbs to LED lights will require an accurate account of the type of fixtures that they have located across their city.  
  
 Additionally, an updated catalog of the current streetlight network will allow for the complementary goals of increased pedestrian safety and improved equity across neighborhoods to move forward. Driven by these aligned goals to reduce the city’s carbon footprint, increase pedestrian safety and extend the existing network into underserved communities, a complete and thorough inventory of the existing streetlight network is of utmost importance.
  
@@ -29,6 +20,21 @@ In addition to the heading parameter, we also tuned the pitch parameter in the A
 We also tuned the FOV (field of view) parameter dependent on the fixture class we were attempting to capture.  The FOV  relates to the horizontal field of view for each captured image. It is expressed in degrees from 0 to 120. By adjusting the FOV to a lower setting, the default is set at 90,  you are essentially zooming in on the image target. For those lights set back further from the road a lower FOV setting would prove to be more productive in capturing the targeted streetlight. The challenge with adjusting the FOV parameter was that it sometimes cropped out the light fixture. For example,  if we captured a colonial light  when the light FOV was set to 90 and the light isn’t in the middle of the frame, when we change the FOV to 30, the fixture would not appear in the image. With heading, pitch and FOV properly tuned, we would then initiate a Google Street View Static API request for all the images for a particular fixture class. 
 The inventory of 3788 cataloged streetlights contained 14 different classes. However only three of these fixture type classes were represented in a large enough sample in the field for us to generate enough training images for the classifier. There were a total of 3293 enclosed(ENCL) fixtures, 215 colonial (COLN) fixtures and 77 open (OPEN) making up nearly 95% of all the streetlights in Charlottesville. Using the tuned parameters, separate requests were sent  to the Google Street View Static API to return images for each of these three classes. Due to the imbalance between the classes, we made subsequent requests to the API for both the COLN and OPEN with varied parameter settings. This allowed us to generate multiple images from a single streetlight in this class and assisted in mitigating the extreme imbalances between classes present in the field. 
 Once all the requested images had been downloaded, we processed each one individually to examine image capture success. For those images which showed a complete streetlight we labeled the correct class name and sorted in the appropriate sub-folder for. Images which failed to capture any streetlight or partial streetlight were labeled as non-streetight and collected in a sub-folder. Images which rendered a partial streetlight were set aside. The resulting dataset consisted of 1,845 non_streetlights, 1035 enclosed, 411 colonial and 89 open for a total of 3,380 images. 
+
+Below are the four categories:
+
+Colonial Lights
+
+![colonial](https://user-images.githubusercontent.com/50001904/118058990-73bc9000-b35d-11eb-8c15-d9be9e610226.jpg)
+
+Enclosed
+![enclosed](https://user-images.githubusercontent.com/50001904/118059312-3dcbdb80-b35e-11eb-83ce-08cd9a565467.jpg)
+
+Open
+![open](https://user-images.githubusercontent.com/50001904/118059420-7d92c300-b35e-11eb-8949-d87bb4e49d9d.jpg)
+
+No Street Light in the Image
+![noStreetlight](https://user-images.githubusercontent.com/50001904/118059330-4ae8ca80-b35e-11eb-985a-ddb74bae9728.jpg)
  
 ## Data Augmentation 
 
