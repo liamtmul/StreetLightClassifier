@@ -23,17 +23,17 @@ Once all the requested images had been downloaded, we processed each one individ
 
 Below are the four categories:
 
-###Colonial Lights
+### Colonial Lights
 
 ![colonial](https://user-images.githubusercontent.com/50001904/118058990-73bc9000-b35d-11eb-8c15-d9be9e610226.jpg)
 
-###Enclosed
+### Enclosed
 ![enclosed](https://user-images.githubusercontent.com/50001904/118059312-3dcbdb80-b35e-11eb-83ce-08cd9a565467.jpg)
 
-###Open
+### Open
 ![open](https://user-images.githubusercontent.com/50001904/118059420-7d92c300-b35e-11eb-8949-d87bb4e49d9d.jpg)
 
-###No Street Light in the Image
+### No Street Light in the Image
 ![noStreetlight](https://user-images.githubusercontent.com/50001904/118059330-4ae8ca80-b35e-11eb-985a-ddb74bae9728.jpg)
  
 ## Data Augmentation 
